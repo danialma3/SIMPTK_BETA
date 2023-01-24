@@ -22,7 +22,9 @@
             <div class="row">
                 <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
                     <h1>Data Honor Sekolah Siap SK</h1>
-                    <h2 class="mb-4">Hasil Pencarian {{ $nama_sekolah }}</h2>
+                    <h4 class="mb-4">Hasil Pencarian <br>{{ $nama_sekolah }}</h4>
+                    <a href="/honor-sekolah" class="btn btn-primary">
+                        Balik Ke Pencarian </a>
                 </div>
             </div>
         </div>
@@ -39,54 +41,36 @@
             Nah Iyaam data sekolah pian kadada.... kalo kada ta usul hubungi pang Pak Muhammad Nuh Almadani PTK SMA
         </div>
         @else
-        <table id="example" class="table table-striped table-dark">
-            <thead>
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Nama PTK</th>
-                    <th scope="col">Nama Sekolah</th>
-                    <th scope="col">Jabatan</th>
-                    <th scope="col">Asal Kabkot</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($data_ptk as $ptk)
-                <tr>
-                    <th>{{ ++$i }}</th>
-                    <td>{{$ptk->nama_ptk}}</td>
-                    <td>{{$ptk->nama_sekolah}}</td>
-                    <td>{{$ptk->jabatan}}</td>
-                    <td>{{$ptk->kabkot}}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+        <div class="card">
+            <div class="card-body">
+                <table id="example" class="table table-striped table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Nama PTK</th>
+                            <th scope="col">Nama Sekolah</th>
+                            <th scope="col">Jabatan</th>
+                            <th scope="col">Asal Kabkot</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($data_ptk as $ptk)
+                        <tr>
+                            <th>{{ ++$i }}</th>
+                            <td>{{$ptk->nama_ptk}}</td>
+                            <td>{{$ptk->nama_sekolah}}</td>
+                            <td>{{$ptk->jabatan}}</td>
+                            <td>{{$ptk->kabkot}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
         @endif
     </div>
 </section>
 <!-- ***** Features Small End ***** -->
-
-<!-- ***** Footer Start ***** -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <ul class="social">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <p class="copyright">Copyright &copy; 2023 SIMPTK - Developer: Muhammad Nuh Almadani</p>
-            </div>
-        </div>
-    </div>
-</footer>
 
 <script>
     $(document).ready(function() {

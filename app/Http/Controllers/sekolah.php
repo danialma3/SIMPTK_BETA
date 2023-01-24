@@ -12,14 +12,14 @@ class sekolah extends Controller
     public function cari()
     {
         return view('hnr-sekolah', [
-            "title" => "Honor Sekolah Cari",
+            "title" => "Honor Sekolah",
             "data_sekolah" => data_sekolah::all(),
         ]);
     }
     public function dapat(Request $request)
     {
         return view('hnr-sekolah-result', [
-            "title" => "Hasil Pencarian",
+            "title" => "Honor Sekolah",
             "nama_sekolah" => $request->nama_sekolah,
             "data_ptk" => ptk_sekolah::where('nama_sekolah', $request->nama_sekolah)->get(),
             'i' => 0

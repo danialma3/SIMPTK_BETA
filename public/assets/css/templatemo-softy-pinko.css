@@ -98,8 +98,8 @@ figcaption {
   outline: 0;
 }
 
-logo-tulisan.h1 {
-  color: #1e1e1e;
+logo-tulisan.h2 {
+  color: #fcfcfc;
 }
 
 .clearfix:after {
@@ -755,6 +755,12 @@ welcome
   color: #fff;
 }
 
+.welcome-area .header-text h2,
+h3,
+h4 {
+  color: #fff;
+}
+
 .welcome-area .header-text p {
   font-weight: 400;
   font-size: 15px;
@@ -808,7 +814,7 @@ welcome
 
 @media (max-width: 765px) {
   .welcome-area {
-    height: 500px;
+    height: 640px;
     margin-bottom: 25px;
   }
 
