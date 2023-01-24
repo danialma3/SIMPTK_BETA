@@ -21,17 +21,6 @@ Route::get('/', function () {
         "title" => 'Home'
     ]);
 });
-Route::get('/honor-sekolah', function () {
-    return view('hnr-sekolah', [
-        "title" => 'Honor Sekolah',
-        "data_sekolah" => data_sekolah::all()
-    ]);
-});
-Route::get('/honor-sekolah-result', function () {
 
-    return view('hnr-sekolah-result', [
-        "title" => "Honor Sekolah Cari",
-        "data_sekolah" => data_sekolah::all(),
-        "data_ptk" => ptk_sekolah::all()
-    ]);
-});
+Route::get('/honor-sekolah', [sekolah::class, 'cari']);
+Route::post('/honor-sekolah-result', [sekolah::class, 'dapat']);

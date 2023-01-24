@@ -108,7 +108,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <p class="copyright">Copyright &copy; 2023 SMPTK - Developer: Muhammad Nuh Almadani, S. Kom </p>
+                <p class="copyright">Copyright &copy; 2023 SMPTK - Developer: Muhammad Nuh Almadani </p>
             </div>
         </div>
     </div>

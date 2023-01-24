@@ -23,8 +23,9 @@
                 <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
                     <h1>Data Honor Sekolah Siap SK</h1>
                     <h2 class="mb-4">Silahakan Cari Data PTK Suatu Sekolah</h2>
-                    <form action="" method="post">
-                        <select id="sekolah" class="form-control form-control-lg">
+                    <form action="{{ url('honor-sekolah-result') }}" method="post">
+                        {{csrf_field()}}
+                        <select name="nama_sekolah" id="sekolah" class="form-control form-control-lg">
                             <option selected="true" disabled="disabled">Pilih Sekolah</option>
                             @foreach($data_sekolah as $sekolah)
                             <option value="{{ $sekolah->nama_sekolah }}"> {{ $sekolah->nama_sekolah  }}</option>
@@ -68,7 +69,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <p class="copyright">Copyright &copy; 2023 SIMPTK - Developer: Muhammad Nuh Almadani, S. Kom </p>
+                <p class="copyright">Copyright &copy; 2023 SIMPTK - Developer: Muhammad Nuh Almadani </p>
             </div>
         </div>
     </div>

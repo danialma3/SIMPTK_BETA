@@ -808,7 +808,8 @@ welcome
 
 @media (max-width: 765px) {
   .welcome-area {
-    margin-bottom: 100px;
+    height: 500px;
+    margin-bottom: 25px;
   }
 
   .welcome-area .header-text {

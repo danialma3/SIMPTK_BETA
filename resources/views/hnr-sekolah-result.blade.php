@@ -22,18 +22,7 @@
             <div class="row">
                 <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
                     <h1>Data Honor Sekolah Siap SK</h1>
-                    <h2 class="mb-4">Silahakan Cari Data PTK Suatu Sekolah</h2>
-                    <form action="{{ url('cari') }}" method="GET">
-                        <select id="sekolah" class="form-control form-control-lg">
-                            <option selected="true" disabled="disabled">Pilih Sekolah</option>
-                            @foreach($data_sekolah as $sekolah)
-                            <option value="{{ $sekolah->nama_sekolah }}"> {{ $sekolah->nama_sekolah  }}</option>
-                            @endforeach
-                        </select>
-                        <button type="submit" class="btn btn-primary btn-user btn-block mb-4 mt-4">
-                            Cari
-                        </button>
-                    </form>
+                    <h2 class="mb-4">Hasil Pencarian {{ $nama_sekolah }}</h2>
                 </div>
             </div>
         </div>
@@ -45,30 +34,34 @@
 <!-- ***** Features Small Start ***** -->
 <section class="section home-feature">
     <div class="container">
-        <div class="row">
-            <table class="table table-striped table-dark">
-                <thead>
-                    <tr>
-                        <th scope="col">1</th>
-                        <th scope="col">Nama PTK</th>
-                        <th scope="col">Nama Sekolah</th>
-                        <th scope="col">Jabatan</th>
-                        <th scope="col">Asal Kabkot</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($data_ptk as $ptk)
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>{{$ptk->nama_ptk}}</td>
-                        <td>{{$ptk->nama_sekolah}}</td>
-                        <td>{{$ptk->jabatan}}</td>
-                        <td>{{$ptk->kabkot}}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+        @if($data_ptk->isEmpty())
+        <div class="alert alert-danger table table-striped table-dark text-center" role="alert">
+            Nah Iyaam data sekolah pian kadada.... kalo kada ta usul hubungi pang Pak Muhammad Nuh Almadani PTK SMA
         </div>
+        @else
+        <table id="example" class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Nama PTK</th>
+                    <th scope="col">Nama Sekolah</th>
+                    <th scope="col">Jabatan</th>
+                    <th scope="col">Asal Kabkot</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($data_ptk as $ptk)
+                <tr>
+                    <th>{{ ++$i }}</th>
+                    <td>{{$ptk->nama_ptk}}</td>
+                    <td>{{$ptk->nama_sekolah}}</td>
+                    <td>{{$ptk->jabatan}}</td>
+                    <td>{{$ptk->kabkot}}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        @endif
     </div>
 </section>
 <!-- ***** Features Small End ***** -->
@@ -89,15 +82,20 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <p class="copyright">Copyright &copy; 2023 SIMPTK - Developer: Muhammad Nuh Almadani, S. Kom </p>
+                <p class="copyright">Copyright &copy; 2023 SIMPTK - Developer: Muhammad Nuh Almadani</p>
             </div>
         </div>
     </div>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 <script>
     $(document).ready(function() {
-        $('#sekolah').select2();
+        var table = $('#example').DataTable({
+            rowReorder: {
+                selector: 'td:nth-child(2)'
+            },
+            responsive: true
+        });
     });
 </script>
 @endsection
